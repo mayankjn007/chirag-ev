@@ -1,0 +1,493 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chirag EV – Panther EV Dealer, Maharashtra</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #2d3748;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-attachment: fixed;
+    }
+
+    header {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      text-align: center;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    header h1 {
+      margin: 0 0 10px 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      margin: 0 20px;
+      color: #4a5568;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1rem;
+      position: relative;
+      transition: all 0.3s ease;
+      padding: 8px 16px;
+      border-radius: 25px;
+    }
+
+    nav a:hover {
+      color: #667eea;
+      background: rgba(102, 126, 234, 0.1);
+      transform: translateY(-2px);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      transform: translateX(-50%);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    nav a:hover::after {
+      width: 80%;
+    }
+
+    .hero {
+      padding: 120px 20px 80px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: float 20s infinite linear;
+    }
+
+    .hero h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      opacity: 0.95;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    .cta-btn {
+      margin-top: 15px;
+      padding: 15px 35px;
+      background: linear-gradient(135deg, #4c51bf, #667eea);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-btn:hover::before {
+      left: 100%;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 60px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      margin: 0 20px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    }
+
+    .product {
+      border: none;
+      border-radius: 20px;
+      width: 350px;
+      padding: 30px;
+      text-align: center;
+      background: linear-gradient(145deg, #ffffff, #f8fafc);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+
+    .product:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 50px rgba(102, 126, 234, 0.2);
+    }
+
+    .product h3 {
+      margin-top: 15px;
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #2d3748;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .product ul {
+      text-align: left;
+      padding-left: 20px;
+      margin-bottom: 25px;
+    }
+
+    .product li {
+      margin-bottom: 8px;
+      color: #4a5568;
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .product li::before {
+      content: '✓';
+      position: absolute;
+      left: -15px;
+      color: #48bb78;
+      font-weight: bold;
+    }
+
+    .about,
+    .contact {
+      padding: 60px 30px;
+      max-width: 1000px;
+      margin: 40px auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .about h2,
+    .contact h2 {
+      color: #2d3748;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .about p {
+      color: #4a5568;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      font-size: 1.2rem;
+      color: #4a5568;
+      line-height: 1.8;
+    }
+
+    .contact strong {
+      color: #2d3748;
+      font-weight: 600;
+    }
+
+    footer {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 40px;
+      border-top: 1px solid rgba(102, 126, 234, 0.2);
+    }
+
+    footer p {
+      margin: 0;
+      color: #4a5568;
+      font-weight: 500;
+      font-size: 1.1rem;
+    }
+
+    footer small {
+      display: block;
+      margin-top: 10px;
+      color: #718096;
+      font-style: italic;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+
+    @media(max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 1rem;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .products {
+        flex-direction: column;
+        align-items: center;
+        margin: 0 10px;
+      }
+
+      .product {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .about,
+      .contact {
+        margin: 20px 10px;
+        padding: 40px 20px;
+      }
+    }
+
+    @media(max-width: 480px) {
+      .hero {
+        padding: 100px 15px 60px;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Chirag EV</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h2>Your Trusted Panther EV Dealer in Maharashtra</h2>
+    <p>Explore our range of electric vehicles built for the future.</p>
+    <button class="cta-btn" onclick="document.getElementById('products').scrollIntoView({behavior: 'smooth'})">View Products</button>
+  </section>
+
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>
+      We are the official dealership for Panther EV in Maharashtra, bringing you durable, cost-effective electric
+      vehicles with exceptional after-sales support.
+    </p>
+    <p>
+      Chirag EV is a trusted supplier of high-quality and durable electric vehicles, including E-Rickshaws, E-Loaders,
+      and E-Scooters. Our products are manufactured in a state-of-the-art facility that adheres to international best
+      practices in manufacturing, safety, and environmental responsibility.
+    </p>
+    <p>
+      With a monthly production capacity of 1,500 vehicles, our team of experienced engineers and technicians is
+      committed to ensuring complete customer satisfaction. All Panther EV products are approved by ICAT, Manesar, and
+      undergo rigorous quality checks and calibration to meet the latest industry standards.
+    </p>
+    <p>
+      The rapid rise of Panther as a reliable brand in the EV space is a testament to its quality, performance, and
+      trust built over time.
+    </p>
+  </section>
+
+  <section id="products" class="products">
+    <!-- Super Deluxe -->
+    <div class="product">
+      <h3>Panther Super Deluxe E-Rickshaw</h3>
+      <ul>
+        <li>Extra Soft Double Padded Seats</li>
+        <li>Heavy Duty Rim for Load Durability</li>
+        <li>Metal Roof for Enhanced Protection</li>
+        <li>Double Coated Paint Finish</li>
+        <li>Handle Lock for Extra Security</li>
+        <li>Central Locking System</li>
+        <li>Heavy Duty Leg Guard</li>
+        <li>Roof Carrier for Extra Load</li>
+      </ul>
+      <button class="cta-btn">Enquire Now</button>
+    </div>
+
+    <!-- Deluxe -->
+    <div class="product">
+      <h3>Panther Deluxe E-Rickshaw</h3>
+      <ul>
+        <li>Extra Soft Double Padded Seats</li>
+        <li>Heavy Duty Rim</li>
+        <li>Metal Roof for Better Durability</li>
+        <li>Double Coated Paint Finish</li>
+        <li>Handle Lock & Central Locking</li>
+        <li>Leg Guard for Driver Safety</li>
+        <li>Roof Carrier for Extra Load</li>
+      </ul>
+      <button class="cta-btn">Enquire Now</button>
+    </div>
+
+    <!-- Loader -->
+    <div class="product">
+      <h3>Panther E-Loader</h3>
+      <ul>
+        <li>Extra Soft Seating for Comfort</li>
+        <li>Heavy Duty Rim for Heavy Loads</li>
+        <li>Metal Roof for Strength</li>
+        <li>Double Coated Paint Finish</li>
+        <li>Handle Lock & Central Locking System</li>
+        <li>Heavy Duty Leg Guard</li>
+      </ul>
+      <button class="cta-btn">Enquire Now</button>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>
+      <strong>Designated Partners:</strong><br>
+      1. Chirag Gupta<br>
+      2. Vaibhav Kandi<br><br>
+      <strong>Contact Numbers:</strong><br>
+      7983178265, 9607130150
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Chirag EV. All rights reserved.</p>
+    <small>Official Panther EV dealer in Maharashtra.</small>
+  </footer>
+
+</body>
+
+</html>
